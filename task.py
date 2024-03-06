@@ -15,10 +15,21 @@ class Student:
                 lecturer.grades_to_lecturer[course] = [grade]
     
     def __str__(self):
-        return f'Имя:{self.name}\nФамилия:{self.surname}\nСредняя оценка за домашние задания: {self.avarage_score()}\nКурсы в процессе изучения: {', '.join(self.courses_in_progress)}\nЗавершенные курсы: {', '.join(self.finished_courses)}'
-        
+        fio_ = f'Имя:{self.name}\nФамилия:{self.surname}\n'
+        score_ = f'Средняя оценка за домашние задания: {self.avarage_score()}\n'
+        course_p = f'Курсы в процессе изучения: {', '.join(self.courses_in_progress)}\n'
+        course_f = f'Завершенные курсы: {', '.join(self.finished_courses)}'
+        return f'{fio_}{score_}{course_p}{course_f}'
+
     def __sub__(self, other):
-        return f'Средняя оценка {self.name} {self.surname} - {self.avarage_score()} а {other.name} {other.surname} - {other.avarage_score()}'
+        first_name = f'{self.name} {self.surname} - {self.avarage_score()}'
+        second_name = f'{other.name} {other.surname} - {other.avarage_score()}'
+        return f'Средняя оценка {first_name} а {second_name}'
+    
+    def __lt__(self, other):
+        less_ = f'Средняя оценка {self.name} - {self.avarage_score()} меньше чем {other.name} - {other.avarage_score()}'
+        more_ = f'Средняя оценка {other.name} - {other.avarage_score()} меньше чем {self.name} - {self.avarage_score()}'
+        return less_ if self.avarage_score() < other.avarage_score() else more_
 
     def avarage_score(self):
         grade_list = sum(list(self.grades.values()),[])
@@ -37,14 +48,23 @@ class Lecturer(Mentor):
         self.grades_to_lecturer = {}
 
     def __str__(self) -> str:
-        return f'Имя: {self.name}\nФамилия: {self.surname}\nСредняя оценка за лекции: {self.avarage_score()}'
+        fio_ = f'Имя: {self.name}\nФамилия: {self.surname}\n'
+        score_ = f'Средняя оценка за лекции: {self.avarage_score()}'
+        return f'{fio_}{score_}'
        
     def avarage_score(self):
         grade_list = sum(list(self.grades_to_lecturer.values()),[])
         return round(sum(grade_list) / len(grade_list),1)
     
     def __sub__(self, other):
-        return f'Средняя оценка лекторов: {self.name} {self.surname} - {self.avarage_score()} баллов | {other.name} {other.surname} - {other.avarage_score()} баллов'
+        first_lecturer = f'{self.name} {self.surname} - {self.avarage_score()}'
+        second_lecturer = f'{other.name} {other.surname} - {other.avarage_score()}'
+        return f'Средняя оценка лекторов: {first_lecturer} баллов | {second_lecturer} баллов'
+    
+    def __lt__(self, other):
+        less_ = f'Средняя оценка лектора {self.name} - {self.avarage_score()} меньше чем {other.name} - {other.avarage_score()}'
+        more_ = f'Средняя оценка лектора {other.name} - {other.avarage_score()} меньше чем {self.name} - {self.avarage_score()}'
+        return less_ if self.avarage_score() < other.avarage_score() else more_
 
 
 class Reviewer(Mentor):
@@ -129,11 +149,15 @@ print(cool_lecturer)
 print(cool_lecturer.avarage_score())
 print(best_student)
 
-#сравниваем двух лекторов по среднему баллу.
+#сравниваем двух лекторов по среднему баллу. (метод __sub__)
 print(cool_lecturer - bad_lecturer)
 
 #сравниваем двух студентов по среднему баллу.
 print(best_student - bad_student)
+
+#сравниваем двух лекторов/студентов по среднему балу . (метод __lt__)
+print(best_student < bad_student)
+print(cool_lecturer < bad_lecturer)
 
 #подчитываем средную оценку по всем студентам в рамках конкретного курса.
 students_list = [best_student,bad_student]
