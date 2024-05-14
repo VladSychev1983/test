@@ -39,7 +39,7 @@ def add_client(conn, first_name, last_name, email, phones=None):
 
 def add_phone(conn, client_id, phone):
     with conn.cursor() as cur:
-        check_sql = """SELECT client_id from clients WHERE client_id=%s;"""
+        check_sql = """SELECT client_id FROM clients WHERE client_id=%s;"""
         cur.execute(check_sql,(client_id,))
         found_id = cur.fetchone()[0]
         print(found_id)
@@ -58,7 +58,7 @@ def change_client(conn, client_id, first_name=None, last_name=None, email=None, 
     olddata = {}
     newdata = {}
     with conn.cursor() as cur:
-        select_data = """SELECT first_name,last_name,email from clients WHERE client_id=%s"""
+        select_data = """SELECT first_name,last_name,email FROM clients WHERE client_id=%s"""
         cur.execute(select_data,(client_id,))
         datalist = list(cur.fetchall()[0])
         olddata["first_name"] = datalist[0]
@@ -81,7 +81,7 @@ def change_client(conn, client_id, first_name=None, last_name=None, email=None, 
         
         if phones:
             print('Updating phones!')
-            delete_sql = """DELETE from phones WHERE client_id=%s"""
+            delete_sql = """DELETE FROM phones WHERE client_id=%s"""
             cur.execute(delete_sql,(client_id,))
             for phone in phones:
                 insert_sql = """INSERT INTO phones (client_id,phone) VALUES (%s,%s);"""
@@ -98,7 +98,7 @@ def delete_phone(conn, client_id, phone):
 
 def find_client(conn, first_name=None, last_name=None, email=None, phone=None):
     with conn.cursor() as cur:
-        select_sql = """SELECT c.client_id FROM clients c inner join phones p on c.client_id=p.client_id where c.first_name=%s or c.last_name=%s or c.email=%s or p.phone=%s"""
+        select_sql = """SELECT c.client_id FROM clients c INNER JOIN phones p ON c.client_id=p.client_id WHERE c.first_name=%s OR c.last_name=%s OR c.email=%s OR p.phone=%s"""
         cur.execute(select_sql,(first_name,last_name,email,phone))        
         found_id = cur.fetchone()[0]
         print(found_id)
