@@ -106,13 +106,13 @@ def find_client(conn, first_name=None, last_name=None, email=None, phone=None):
 
 
 create_db(conn)
-#add_client(conn,'Bob','Marley','info@bobmarleymuseum.com')
-#add_client(conn,'Frank','Sinatra','contact@thefranksinatra.com',['954-295-4464','310-288-9970'])
-#add_phone(conn,'5','89251111112')
-#add_phone(conn,'27','89251111112')
-#change_client(conn,'27','SuperBob_','Marley','info@bobmarleymuseum.com',['89031111111','89261151115'])
-#change_client(conn,'27','Bob','Marley')
-#delete_phone(conn,'27','89031111111')
+add_client(conn,'Bob','Marley','info@bobmarleymuseum.com')
+add_client(conn,'Frank','Sinatra','contact@thefranksinatra.com',['954-295-4464','310-288-9970'])
+add_phone(conn,'5','89251111112')
+add_phone(conn,'27','89251111112')
+change_client(conn,'27','SuperBob_','Marley','info@bobmarleymuseum.com',['89031111111','89261151115'])
+change_client(conn,'27','Bob','Marley')
+delete_phone(conn,'27','89031111111')
 find_client(conn,'Bob','')
 find_client(conn,'','Marley')
 
