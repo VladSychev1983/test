@@ -12,8 +12,6 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 def get_shops (session, publisher_name):
-#для проверки в базе Ленин, Рэнд, Пушкин
-    #a = aliased(Authors)
     b = aliased(Book)
     p = aliased(Publisher)
     s = aliased(Stock)
