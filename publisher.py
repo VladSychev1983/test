@@ -26,7 +26,7 @@ def get_shops (session, publisher_name):
         filter(p.id == publisher_name).\
         order_by(sl.date_sale).all() 
     else:    
-         myquery = session.query(b, p, s, sl).\
+        myquery = session.query(b, p, s, sl).\
         join(p, b.id_publisher == p.id).\
         join(s, b.id == s.id_book ).\
         join(sl, s.id == sl.id_stock).\
