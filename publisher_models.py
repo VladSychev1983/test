@@ -3,32 +3,22 @@ from sqlalchemy.orm import declarative_base, relationship
 
 Base = declarative_base()
 
-class Authors(Base):
-    __tablename__ = 'authors'
-    id = sq.Column(sq.Integer, primary_key=True, autoincrement="auto")
-    name = sq.Column(sq.String(length=255), unique=True, nullable=False)
-
 class Publisher(Base):
     __tablename__ = "publisher"
     id = sq.Column(sq.Integer, primary_key=True, autoincrement="auto")
     name = sq.Column(sq.String(length=255), unique=True, nullable=False)   
-
 
 class Book(Base):
     __tablename__ = "book"
     id = sq.Column(sq.Integer, primary_key=True, autoincrement="auto")
     title = sq.Column(sq.String(255), nullable=False)
     id_publisher = sq.Column(sq.Integer, sq.ForeignKey(Publisher.id), nullable=False)
-    author_id = sq.Column(sq.Integer, sq.ForeignKey(Authors.id), nullable=False)
     publisher = relationship(Publisher, backref="books")
-    authors = relationship(Authors, backref="books")
- 
 
 class Shop(Base):
     __tablename__ = "shop"    
     id = sq.Column(sq.Integer, primary_key=True, autoincrement="auto")
     name = sq.Column(sq.String(length=255), unique=True, nullable=False)
-
 
 class Stock(Base):
     __tablename__ = "stock"

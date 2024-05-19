@@ -21,48 +21,13 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: authors; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.authors (
-    id integer NOT NULL,
-    name character varying(255) NOT NULL
-);
-
-
-ALTER TABLE public.authors OWNER TO postgres;
-
---
--- Name: authors_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE public.authors_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.authors_id_seq OWNER TO postgres;
-
---
--- Name: authors_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE public.authors_id_seq OWNED BY public.authors.id;
-
-
---
 -- Name: book; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.book (
     id integer NOT NULL,
     title character varying(255) NOT NULL,
-    id_publisher integer NOT NULL,
-    author_id integer
+    id_publisher integer NOT NULL
 );
 
 
@@ -230,13 +195,6 @@ ALTER SEQUENCE public.stock_id_seq OWNED BY public.stock.id;
 
 
 --
--- Name: authors id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.authors ALTER COLUMN id SET DEFAULT nextval('public.authors_id_seq'::regclass);
-
-
---
 -- Name: book id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -272,29 +230,18 @@ ALTER TABLE ONLY public.stock ALTER COLUMN id SET DEFAULT nextval('public.stock_
 
 
 --
--- Data for Name: authors; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.authors (id, name) FROM stdin;
-1	Пушкин.А.С
-2	Айн Рэнд
-3	Ленин.В.И
-\.
-
-
---
 -- Data for Name: book; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.book (id, title, id_publisher, author_id) FROM stdin;
-1	Капитанская дочка	1	1
-2	Руслан и Людмила	1	1
-3	Капитанская дочка	2	1
-4	Евгений Онегин	3	1
-5	Источник	3	2
-6	Атлант расправил плечи	2	2
-7	Государство и революция	1	3
-8	Что делать?	2	3
+COPY public.book (id, title, id_publisher) FROM stdin;
+1	Капитанская дочка	1
+2	Руслан и Людмила	1
+3	Капитанская дочка	2
+4	Евгений Онегин	3
+5	Источник	3
+6	Атлант расправил плечи	2
+7	Государство и революция	1
+8	Что делать?	2
 \.
 
 
@@ -355,13 +302,6 @@ COPY public.stock (id, id_book, id_shop) FROM stdin;
 
 
 --
--- Name: authors_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.authors_id_seq', 3, true);
-
-
---
 -- Name: book_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -394,14 +334,6 @@ SELECT pg_catalog.setval('public.shop_id_seq', 5, true);
 --
 
 SELECT pg_catalog.setval('public.stock_id_seq', 8, true);
-
-
---
--- Name: authors authors_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.authors
-    ADD CONSTRAINT authors_pkey PRIMARY KEY (id);
 
 
 --
@@ -458,14 +390,6 @@ ALTER TABLE ONLY public.shop
 
 ALTER TABLE ONLY public.stock
     ADD CONSTRAINT stock_pkey PRIMARY KEY (id);
-
-
---
--- Name: book book_author_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.book
-    ADD CONSTRAINT book_author_id_fkey FOREIGN KEY (author_id) REFERENCES public.authors(id);
 
 
 --

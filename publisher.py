@@ -1,27 +1,44 @@
 import sqlalchemy
+import os
 from sqlalchemy.orm import sessionmaker
-from publisher_models import create_tables, Publisher, Book, Stock, Shop, Sale, Authors
+from publisher_models import create_tables, Publisher, Book, Stock, Shop, Sale
+from sqlalchemy.orm import aliased
 
-DSN = 'postgresql://postgres:password@192.168.32.215:5432/publisherdb'
+DSN = 'postgresql://postgres:juehtw@192.168.32.215:5432/publisherdb'
 engine = sqlalchemy.create_engine(DSN)
 
 create_tables(engine)
-
 Session = sessionmaker(bind=engine)
 session = Session()
 
+def get_shops (session, publisher_name):
 #для проверки в базе Ленин, Рэнд, Пушкин
+    #a = aliased(Authors)
+    b = aliased(Book)
+    p = aliased(Publisher)
+    s = aliased(Stock)
+    sl = aliased(Sale)
 
-author_name = input('Введите имя автора:')
+    if publisher_name.isdigit():
+        myquery = session.query(b, p, s, sl).\
+        join(p, b.id_publisher == p.id).\
+        join(s, b.id == s.id_book ).\
+        join(sl, s.id == sl.id_stock).\
+        filter(p.id == publisher_name).\
+        order_by(sl.date_sale).all()
+        for b,p,s,sl in myquery:
+            print(b.title, p.name, sl.price, sl.date_sale, sep=' | ',end='\n') 
+    else:    
+        myquery = session.query(b, p, s, sl).\
+        join(p, b.id_publisher == p.id).\
+        join(s, b.id == s.id_book ).\
+        join(sl, s.id == sl.id_stock).\
+        filter(p.name.like('%'+ publisher_name + '%')).\
+        order_by(sl.date_sale).all()
+        for b,p,s,sl in myquery:
+            print(b.title, p.name, sl.price, sl.date_sale, sep=' | ',end='\n')    
+    session.close()
 
-from sqlalchemy.orm import aliased
-a = aliased(Authors)
-b = aliased(Book)
-p = aliased(Publisher)
-s = aliased(Stock)
-sl = aliased(Sale)
-myquery = session.query(a, b, p, s, sl).join(b, a.id == b.author_id).join(p, b.id_publisher == p.id).join(s, b.id == s.id_book ).join(sl, s.id == sl.id_stock).filter(a.name.like('%'+ author_name + '%')).order_by(sl.date_sale).all()
-for a,b,p,s,sl in myquery:
-    print(a.name, b.title, p.name, sl.price, sl.date_sale)
-
-session.close()
+if __name__ == "__main__":
+    publisher_name = input('Введите название издательства:')
+    get_shops(session, publisher_name)
