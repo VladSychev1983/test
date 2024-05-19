@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 from publisher_models import create_tables, Publisher, Book, Stock, Shop, Sale
 from sqlalchemy.orm import aliased
 
-DSN = 'postgresql://postgres:juehtw@192.168.32.215:5432/publisherdb'
+DSN = 'postgresql://postgres:password@192.168.32.215:5432/publisherdb'
 engine = sqlalchemy.create_engine(DSN)
 
 create_tables(engine)
