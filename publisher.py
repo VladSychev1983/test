@@ -17,20 +17,16 @@ def get_shops (session, publisher_name):
     s = aliased(Stock)
     sl = aliased(Sale)
 
-    myquery = ''
-    if publisher_name.isdigit():
-        myquery = session.query(b, p, s, sl).\
+    myquery = session.query(b, p, s, sl).\
         join(p, b.id_publisher == p.id).\
         join(s, b.id == s.id_book ).\
-        join(sl, s.id == sl.id_stock).\
-        filter(p.id == publisher_name).\
+        join(sl, s.id == sl.id_stock)\
+        
+    if publisher_name.isdigit():
+        myquery = myquery.filter(p.id == publisher_name).\
         order_by(sl.date_sale).all() 
     else:    
-        myquery = session.query(b, p, s, sl).\
-        join(p, b.id_publisher == p.id).\
-        join(s, b.id == s.id_book ).\
-        join(sl, s.id == sl.id_stock).\
-        filter(p.name.like('%'+ publisher_name + '%')).\
+        myquery = myquery.filter(p.name.like('%'+ publisher_name + '%')).\
         order_by(sl.date_sale).all()
     
     for b,p,s,sl in myquery:
