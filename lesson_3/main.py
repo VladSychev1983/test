@@ -18,7 +18,6 @@ def check_news(news_list):
             word = str(word).replace(".","")
             word = str(word).strip()
             counter += 1
-            print(f'Проверяю {word} в title')
             if word in keywords:
                 found_counter += 1
                 result[dicts["title"]] = {"pub_time": dicts["pub_time"], 
@@ -27,15 +26,15 @@ def check_news(news_list):
             word = str(word).replace(",","")
             word = str(word).replace(".","")
             word = str(word).strip()
-            print(f'Проверяю {word} в text')
+        
             counter += 1
             if word in keywords:
                 result[dicts["title"]] = {"pub_time": dicts["pub_time"],
                                           "link" : dicts["link"], "word": word}
                 found_counter += 1
 
-    print(f'Checked words: {counter}')
-    print(f'Found words: {found_counter}')             
+    #print(f'Checked words: {counter}')
+    #print(f'Found words: {found_counter}')             
     
     for key,value in result.items():
         pattern = r"^(\d+-\d+-\d{2})(T.*$)"
