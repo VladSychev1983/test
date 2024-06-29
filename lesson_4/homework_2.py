@@ -1,6 +1,5 @@
 import types
 
-
 def flat_generator(list_of_lists):
     for item in sum(list_of_lists,[]):
         yield item
