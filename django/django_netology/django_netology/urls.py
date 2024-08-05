@@ -17,11 +17,11 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-
-from main.views import index,time
+from main.views import home_view,time_view,workdir_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
-    path('time/', time)
+    path('', home_view, name='home'),
+    path('current_time/', time_view, name='time'),
+    path('workdir/', workdir_view, name='workdir'),
 ]
