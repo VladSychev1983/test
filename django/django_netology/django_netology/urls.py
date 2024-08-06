@@ -16,12 +16,18 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
-from main.views import home_view,time_view,workdir_view
+from django.urls import path,register_converter
+from main.views import home_view,time_view,workdir_view,hello,sum,DateConverter, user_report
+from main.views import pagi
+register_converter(DateConverter, 'date')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view, name='home'),
     path('current_time/', time_view, name='time'),
     path('workdir/', workdir_view, name='workdir'),
+    path ('hello/', hello, name='hello'),
+    path('sum/<int:a>/<int:b>/', sum, name='sum'),
+    path('users/<int:id>/reports/<date:dt>/', user_report, name='user_report'),
+    path ('pagi/', pagi, name='pagi')
 ]
