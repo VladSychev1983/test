@@ -23,10 +23,8 @@ def cookbook(request,dish):
     context ={}
     template_name = 'recipes.html'
     servings = request.GET.get("servings", 1)
-    items_list = [DATA[dish] for item in DATA]
-    for key,value in items_list[0].items():    
-        context[key] = round(value * int(servings),1)
-    context_new = {
-        "recipe" : context 
+    items = {key : round(value * int(servings),1) for key, value in DATA[dish].items()}
+    context = {
+        "recipe" : items 
     }
-    return render(request, template_name, context_new)
+    return render(request, template_name, context)
