@@ -13,6 +13,7 @@ class Command(BaseCommand):
             #datetime.date.today() = 2024-08-09
             print(phones)
             for phone in phones:
+                slug_item = phone["name"].replace(" ","-")
                 # Добавьте сохранение модели
                 p = Phones.objects.create(
                     id=phone["id"],
@@ -21,7 +22,7 @@ class Command(BaseCommand):
                     price=phone["price"],
                     release_date=phone["release_date"],
                     lte_exists=phone["lte_exists"],
-                    slug=phone["name"]
+                    slug=slug_item
                     )
         
         self.stdout.write(
