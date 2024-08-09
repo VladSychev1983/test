@@ -8,7 +8,13 @@
             <h1>Телефон</h1>
         </div>
         <div class="content">
-
+            {% for id, phones_dict in phone.items %}
+            <td style="width: 5%;">
+            <h3><a href="{{ link_catalog }}">{{ phones_dict.name }}</a></h3>
+            <p><b>Стоимость {{ phones_dict.price }}</b></p>
+            <img src="{{ phones_dict.image }}" width="200" height="350">
+            </td>        
+            {% endfor %}                
         </div>
     </div>
 {% endblock %}
