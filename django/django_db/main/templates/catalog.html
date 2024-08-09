@@ -5,29 +5,28 @@
 {% block content %}
     <div class="container">
         <div class="header">
-            <h1><a href="/catalog">Каталог</a></h1>
+            <h1><a href="{{ link_catalog }}">Каталог</a></h1>
         </div>
 
         <div class="sort-block">
             <p>
             Сортировать по: 
-                <a href="/catalog?sort=name">названию</a> 
-                <a href="/catalog?sort=min_price">начиная с дешевых</a>
-                <a href="/catalog?sort=max_price">начиная с дорогих</a>
+                <a href="{{ link_catalog }}?sort=name">названию</a> 
+                <a href="{{ link_catalog }}?sort=min_price">начиная с дешевых</a>
+                <a href="{{ link_catalog }}?sort=max_price">начиная с дорогих</a>
             </p>
         </div>
         <div class="content">
             <table class="table">
-                <tr>
-                    
+                <tr>                   
             {% for id, phones_dict in phones.items %}
-            <td style="width: 3%;"><h3>{{ phones_dict.name }}</h3>
-            <p>Стоимость {{ phones_dict.price }}</p>
+            <td style="width: 5%;">
+            <h3><a href="{{ link_catalog }}/{{ phones_dict.slug}}">{{ phones_dict.name }}</a></h3>
+            <p><b>Стоимость {{ phones_dict.price }}</b></p>
             <img src="{{ phones_dict.image }}" width="200" height="350">
-            </td>
-            {% endfor %}
-                
-            </tr>
+            </td>        
+            {% endfor %}                
+        </tr>
             </table>
         </div>
     </div>
