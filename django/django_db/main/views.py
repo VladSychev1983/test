@@ -34,9 +34,28 @@ def show_catalog(request):
     
         elif sort_params.index(sort_) == 1:
             print(f'Sorting by min_price..')
-        
+            sorted_list = []
+            data_list = list(phones_items.values())
+            sorted_price = sorted([x["price"] for x in data_list])
+            for price in sorted_price:
+                for x in data_list:
+                    if price == x["price"]:
+                        sorted_list.append(x)
+            phones_items.clear()
+            for x in sorted_list:
+                phones_items[x["id"]] = x        
         else:
             print(f'Sorting by max_price..')
+            sorted_list = []
+            data_list = list(phones_items.values())
+            sorted_price = sorted([x["price"] for x in data_list],reverse=True)
+            for price in sorted_price:
+                for x in data_list:
+                    if price == x["price"]:
+                        sorted_list.append(x)
+            phones_items.clear()
+            for x in sorted_list:
+                phones_items[x["id"]] = x
 
     context = {
         'link_catalog': '/catalog',
