@@ -7,3 +7,16 @@ POST http://localhost:8000/api/
 
 ###
 GET http://localhost:8000/api/weapon/1/
+
+###
+GET http://localhost:8000/api/weaponlist
+
+###
+POST http://localhost:8000/api/weaponlist/
+Content-Type: application/json
+
+{
+  "power": 500,
+  "rarity": "superpuper",
+  "value": 333
+}

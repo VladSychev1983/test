@@ -8,6 +8,8 @@ from rest_framework.generics import RetrieveAPIView
 from .models import Weapon
 from .serializers import WeaponSerializer
 
+from rest_framework import viewsets
+
 # @api_view(['GET','POST'])
 # def demo(request):
 #     if request.method == 'GET':
@@ -27,7 +29,7 @@ from .serializers import WeaponSerializer
 
 #     def post(self,request):
 #         return Response({'status': 'OK'})
-    
+
 class DemoView(ListAPIView):
     queryset = Weapon.objects.all()
     serializer_class = WeaponSerializer
@@ -35,7 +37,13 @@ class DemoView(ListAPIView):
     def post(self,request):
         return Response({'status': 'OK'})
 
+#информация по одному конкретному оружию.
 class WeaponView(RetrieveAPIView):
     queryset = Weapon.objects.all()
     serializer_class = WeaponSerializer
+
+class NewView(viewsets.ModelViewSet):
+    queryset = Weapon.objects.all()
+    serializer_class = WeaponSerializer
+    #http_method_names = ['post']
 

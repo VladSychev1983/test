@@ -10,5 +10,5 @@ from drf_app.models import Weapon
 class WeaponSerializer(serializers.ModelSerializer):
     class Meta:
         model = Weapon
-        fields = ['id','power','rarity']
+        fields = ['id','power','rarity','value']
 
