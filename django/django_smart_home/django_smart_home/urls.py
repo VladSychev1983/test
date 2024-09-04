@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from measurement.views import SensorsView,UpdateSensorView
+from measurement.views import SensorsView
 from measurement.views import SensorsDetailView
 from measurement import views
 

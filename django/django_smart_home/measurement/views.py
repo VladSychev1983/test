@@ -10,15 +10,10 @@ from rest_framework.decorators import api_view, action
 
 #get - отображаем датчики
 #post - создаем датчик
+#patch - обновление датчика
 class SensorsView(viewsets.ModelViewSet):
     queryset = Sensor.objects.all()
     serializer_class = SensorsSerializer
-
-#patch - обновление датчика
-class UpdateSensorView(RetrieveAPIView):
-    queryset = Sensor.objects.all()
-    serializer_class = SensorsSerializer
-    http_method_names = ['patch']
 
 #post - добавление измерения.
 class UpdateMeasureView(viewsets.ModelViewSet):
@@ -26,7 +21,6 @@ class UpdateMeasureView(viewsets.ModelViewSet):
     serializer_class = MeasurementSerializer
 
 #get -получение информации по датчику
-
 class SensorsDetailView(RetrieveAPIView):
     queryset = Sensor.objects.all()
     serializer_class = SensorDetailSerializer
