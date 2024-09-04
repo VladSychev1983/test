@@ -8,7 +8,7 @@ from rest_framework.generics import RetrieveAPIView
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view, action
 
-#get - отображаем датчики
+#get - отображаем датчики 
 #post - создаем датчик
 #patch - обновление датчика
 class SensorsView(viewsets.ModelViewSet):
