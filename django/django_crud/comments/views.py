@@ -5,6 +5,9 @@ from rest_framework.viewsets import ViewSet
 from .serilizers import CommentSerializer
 from .models import Comment
 
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import SearchFilter,OrderingFilter
+
 #если нужно описать в ручную действия
 class CommentViewSet2(ViewSet):
     #выводит все объекты данного ресурса.
@@ -27,6 +30,8 @@ class CommentViewSet2(ViewSet):
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    filterset_fields = ['user',]
+    search_fields = ['text',]
+    ordering_fields = ['id','user','text','created_at']
     
-    
-
