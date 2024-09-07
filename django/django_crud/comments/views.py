@@ -8,6 +8,8 @@ from .models import Comment
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter,OrderingFilter
 
+from rest_framework.pagination import LimitOffsetPagination
+
 #если нужно описать в ручную действия
 class CommentViewSet2(ViewSet):
     #выводит все объекты данного ресурса.
@@ -34,4 +36,4 @@ class CommentViewSet(viewsets.ModelViewSet):
     filterset_fields = ['user',]
     search_fields = ['text',]
     ordering_fields = ['id','user','text','created_at']
-    
+    pagination_class = LimitOffsetPagination
