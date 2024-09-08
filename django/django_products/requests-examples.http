@@ -7,8 +7,8 @@ POST {{baseUrl}}/products/
 Content-Type: application/json
 
 {
-  "title": "Огурец",
-  "description": "Лучшие огурцы на рынке"
+  "title": "Банан",
+  "description": "Вкусный банана из лимпопо"
 }
 
 ###
@@ -46,14 +46,14 @@ POST {{baseUrl}}/stocks/
 Content-Type: application/json
 
 {
-  "address": "Склад №2",
+  "address": "Склад №3",
   "positions": [
     {
-      "product": 2,
-      "quantity": 250,
-      "price": 120.50
+      "product": 4,
+      "quantity": 1000,
+      "price": 140
     },
-    {
+      {
       "product": 3,
       "quantity": 100,
       "price": 180
@@ -64,7 +64,7 @@ Content-Type: application/json
 ###
 
 # обновляем записи на складе +
-PATCH {{baseUrl}}/stocks/4/
+PATCH {{baseUrl}}/stocks/3/
 Content-Type: application/json
 
 {
@@ -79,11 +79,12 @@ Content-Type: application/json
       "quantity": 556,
       "price": 145
     }
+
   ]
 }
 
 ###
 
 # поиск складов, где есть определенный продукт
-GET {{baseUrl}}/stocks/?products=2
+GET {{baseUrl}}/stocks/?products=4
 Content-Type: application/json

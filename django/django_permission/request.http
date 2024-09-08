@@ -1,0 +1,32 @@
+GET http://localhost:8000/api/v1/adv/
+Authorization: Token 16a8f1863784ba37a2b48db5b21ecb4fa894224a
+
+### создать обьявление. Запросы с токен admin
+
+POST http://localhost:8000/api/v1/adv/
+Content-Type: application/json
+Authorization: Token 560fd315e02622e2ee23e6c1767a9ceaa849184d
+
+{
+    "text": "Объявление"
+}
+
+### удаление объявления. Запросы с токен admin2
+
+DELETE http://localhost:8000/api/v1/adv/5/
+Authorization: Token 16a8f1863784ba37a2b48db5b21ecb4fa894224a
+
+###
+
+GET http://localhost:8000/api/v1/adv/5/
+Authorization: Token 560fd315e02622e2ee23e6c1767a9ceaa849184d
+
+###
+# получаем токен для пользователя.
+POST http://localhost:8000/api-token-auth/
+Content-Type: application/json
+
+{
+    "username":"admin",
+    "password":"juehtw"
+}
