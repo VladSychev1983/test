@@ -24,7 +24,7 @@ Authorization: Token eed45700ac0c3b2ac08d35a3b2695a9428342f59
 ###
 
 # попытка поменять объявление +
-PATCH {{baseUrl}}/advertisements/8/
+PATCH {{baseUrl}}/advertisements/9/
 Content-Type: application/json
 #user1 token    
 Authorization: Token 937109fdd91a3bdd638d8aa3c819c87d49b99891
@@ -38,7 +38,7 @@ Authorization: Token 937109fdd91a3bdd638d8aa3c819c87d49b99891
 ###
 
 # попытка удалить объявление
-DELETE {{baseUrl}}/advertisements/8/
+DELETE {{baseUrl}}/advertisements/12/
 Content-Type: application/json
 #user1 token    
 Authorization: Token 937109fdd91a3bdd638d8aa3c819c87d49b99891
