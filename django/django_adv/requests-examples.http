@@ -1,0 +1,65 @@
+# примеры API-запросов
+
+@baseUrl = http://localhost:8000/api
+
+# получение объявлений  +
+GET {{baseUrl}}/advertisements/
+Content-Type: application/json
+
+###
+
+# создание объявления +
+POST {{baseUrl}}/advertisements/
+Content-Type: application/json
+#admin token
+#Authorization: Token 770b57f7104dad2d0ccf8d3e298eeb259d228f98
+#user token
+Authorization: Token eed45700ac0c3b2ac08d35a3b2695a9428342f59 
+
+{
+  "title": "Чайник3 IKEA",
+  "description": "Срочно"
+}
+
+###
+
+# попытка поменять объявление +
+PATCH {{baseUrl}}/advertisements/8/
+Content-Type: application/json
+#user1 token    
+Authorization: Token 937109fdd91a3bdd638d8aa3c819c87d49b99891
+#user token
+#Authorization: Token eed45700ac0c3b2ac08d35a3b2695a9428342f59
+
+{
+  "status": "OPEN"
+}
+
+###
+
+# попытка удалить объявление
+DELETE {{baseUrl}}/advertisements/8/
+Content-Type: application/json
+#user1 token    
+Authorization: Token 937109fdd91a3bdd638d8aa3c819c87d49b99891
+#user token
+#Authorization: Token eed45700ac0c3b2ac08d35a3b2695a9428342f59
+
+
+###
+
+# фильтрация по создателю +
+GET {{baseUrl}}/advertisements/?creator=2
+Content-Type: application/json
+
+###
+
+# фильтрация по дате +
+GET {{baseUrl}}/advertisements/?created_at_before=2024-09-11
+Content-Type: application/json
+
+###
+
+# фильтрация по статусу объявления +
+GET {{baseUrl}}/advertisements/?status=CLOSED
+Content-Type: application/json
