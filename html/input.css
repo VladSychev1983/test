@@ -1,0 +1,64 @@
+.form {
+    display: block;
+    background-color: #fafafa;
+    /* background-color: #ffefef; */
+    width: 800px;
+    margin: 0 auto;
+    padding: 50px 50px;
+}
+
+.form-hint {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.field {
+    box-sizing: border-box;
+    width: 640px;
+    border: 1px solid #222222;
+    padding: 15px 20px;
+    background-color: #ffffff;
+}
+/* фокус ввода */
+.field:focus {
+    outline-color: red;
+    outline-style: groove;
+    outline-offset: 5px;
+    border:none;
+}
+
+/* добавляем отступ начиная со второго элемента */
+.form-row:nth-child(n+2) {
+    margin-top: 35px;
+}
+
+.menu {
+    color: red;
+}
+
+.menu__link {
+    color: inherit;
+}
+
+.button {
+    border: none;
+    padding: 15px 55px;
+    color: #ffffff;
+    background-color: #e74c3c;
+    font-family: inherit;
+    font-size: 16px;
+}
+/* поведение ссылки при наведение, посещенная, активная */
+.link, .link:hover, .link:visited, .link:active {
+    color: rebeccapurple;
+}
+/* поведения после нажатия на ссылку но кнопке еще не отпущена */
+.link:active {
+    color: #000;
+}
+/* поедение ссылки при наведении. */
+.link:hover {
+    color: #000;
+}
