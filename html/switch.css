@@ -1,0 +1,27 @@
+.switch__container {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    /* border: 1px solid black; */
+    border-radius: 25px;
+    background: lightgray;
+}
+
+.switch__toggle {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    /* border: 1px solid black; */
+    box-shadow: 0  0 4px rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    background: #fff;
+}
+
+.switch__control:checked + .switch__container {
+    text-align: right;
+    background: #29a529;
+}
+
+.switch__control {
+    display: none;
+}

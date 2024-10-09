@@ -1,0 +1,68 @@
+.container {
+        font-size: 0;
+    text-align: center;
+}
+
+.box {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background: orange;
+    font-size:16px;
+}
+
+.select {
+    /* стилизация списка */
+    display: block;
+    box-sizing: border-box;
+    width: 480px;
+    height: 45px;
+    padding-left: 20px;
+    margin:0;
+    border: 1px solid #cbd1d4;
+    font-family: inherit;
+    font-size: 14px;
+    color: #333333;
+    /* убираем стрелки по умолчанию*/
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* двойная стрелочка справа */
+    background-image: url("https://netology-code.github.io/resourses/pics/select__min_.svg");
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+}
+
+.select:focus {
+    outline: 2px solid #c53b2d;
+    outline-offset: 5px;
+}
+
+/* стилизуем свои радиокнопки */
+.radio-group {
+    display: inline-block;
+    font-size: 15px;
+}
+
+.radio-group:nth-of-type(n+2){
+    margin-left:15px;
+}
+.radio-group-text::before {
+    content:  "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url("https://netology-code.github.io/resourses/pics/radio-no-active.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+/* стилизация выбранной радиокнопки */
+.radio:checked + .radio-group-text::before{
+    background-image: url("https://netology-code.github.io/resourses/pics/radio-active.svg");
+}
+
+.radio {
+    display: none;
+}

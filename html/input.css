@@ -62,3 +62,41 @@
 .link:hover {
     color: #000;
 }
+
+.content {
+    /* box-sizing: content-box;
+    height: 200px;
+    max-height: 150px;
+    padding: 50px;
+    border: 5px solid #000000; */
+    box-sizing: border-box;
+    min-width: 200px;
+    width: 100px;
+    padding: 10px;
+  }
+
+  /* стилизация чекбокса персональных данных */
+  .checkbox-group {
+    font-size: 15px;
+  }
+
+  .checkbox-text::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+    background-image: url("https://netology-code.github.io/resourses/pics/checkbox2-unchecked.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 20px;
+  }
+
+  .checkbox:checked + .checkbox-text::before {
+    background-image: url("https://netology-code.github.io/resourses/pics/checkbox2-checked.svg");
+  }
+
+  .checkbox {
+    display: none;
+  }

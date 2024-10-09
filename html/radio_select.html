@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="radio_select.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+<div class="box">Block 1</div>
+<div class="box">Block 2</div>
+<div class="box">Block 3</div>   
+</div>
+<p>
+    Поля с вариантами ответа.
+</p>
+<label>
+    Города:
+<select class="select">
+    <optgroup label="Россия">
+        <option>Москва</option>
+        <option>Владимир</option>
+    </optgroup>
+    <optgroup label="Беларусь">
+        <option>Минск</option>
+        <option>Брест</option>
+    </optgroup>
+    <optgroup label="Узбекистан">
+        <option>Ташкент</option>
+        <option>Самарканд</option>
+    </optgroup>
+</select>
+</label>
+
+<p>
+    Радиокнопки
+</p>
+<label>
+    <input type="radio" name="gender" checked>
+    мужской
+</label>
+<label></label>
+    <input type="radio" name="gender">
+    женский
+</label>
+
+<p>
+    Стилизация Радиокнопки
+</p>
+<label>
+    <div class="radio-group">
+    <input type="radio" class="radio" name="radio-group">
+    <span class="radio-group-text">Мужской</span>
+</div>
+</label>
+<label>
+<div class="radio-group">
+    <input type="radio" class="radio" name="radio-group">
+    <span class="radio-group-text">Женский</span>
+</div>
+</label>
+</body>
+</html>
