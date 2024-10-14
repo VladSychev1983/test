@@ -46,6 +46,7 @@
 .radio-group:nth-of-type(n+2){
     margin-left:15px;
 }
+
 .radio-group-text::before {
     content:  "";
     display: inline-block;

@@ -1,0 +1,63 @@
+.welcome {
+    background-image: url("https://s0.rbk.ru/v6_top_pics/media/img/0/55/756723938065550.jpg");
+    /* background-color: #6d6c69; */
+    /* opacity: 0.7; */
+    background-repeat: no-repeat;
+    background-position: center top;
+    height: 1000px;
+    color: #fff;
+    text-align: left;
+    /* text-transform: uppercase; */
+    box-sizing: border-box;
+    background-size: cover;
+    position: relative;
+    /* font-family: Helvetica, sans-serif; */
+}
+
+h1 {
+    position: absolute;
+    left: 200px;
+    top: 200px;
+    font-size: 40px;
+}
+/* Подсказка */
+h1:hover::before {
+    content: attr(data-title);
+    position: absolute;
+    display: inline-block;
+    color: #fff;
+    background: #000;
+    padding: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    left: 100%;
+}
+
+/* делаем затемнение фоновому изображению */
+
+.welcome::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* opacity: 0.2; */
+}
+
+/* пример фона с помощью контентого img*/
+.welcome__image {
+    position: absolute;
+    left:0;
+    top:0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top left;
+    z-index: 1; 
+}
+
