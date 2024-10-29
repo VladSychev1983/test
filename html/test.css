@@ -1,0 +1,14 @@
+.wrapper {
+    width: 1000px;
+    padding: 50px;
+    background-color: aqua;
+  }
+  
+.list-items{
+    width: 50%;
+  }
+  
+.item {
+    width: 70%;
+    background-color: purple;
+  }
