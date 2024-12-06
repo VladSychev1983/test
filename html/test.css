@@ -1,14 +1,36 @@
-.wrapper {
-    width: 1000px;
-    padding: 50px;
-    background-color: aqua;
-  }
-  
-.list-items{
-    width: 50%;
-  }
-  
-.item {
-    width: 70%;
-    background-color: purple;
-  }
+  .container {
+  display: flex;
+  width: 1000px;
+  height: 250px;
+  flex-direction: row;
+  border: 1px solid yellow;
+}
+
+.block {
+  width: 200px; 
+  height: 200px;
+  margin: auto;
+}
+
+.block-red {
+  background-color: red;
+}
+
+.block-yellow {
+  background-color: yellow;
+}
+
+.block-green {
+  background-color: green;
+}
+
+.block-blue {
+  background-color: blue;
+}
+
+.block-black {
+  background-color: black;
+}  
+
+
+ 
