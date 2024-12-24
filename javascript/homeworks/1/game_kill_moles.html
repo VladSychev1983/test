@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="game_kill_moles.css">
+    <title>Игра убей кротов</title>
+</head>
+<body>
+    <main class="content">
+        <div class="card">
+            <div id="status" class="status">
+                Убито кротов: <span id="dead">0</span><br>
+                Промахов: <span id="lost">0</span><br>
+            </div>
+            <div class="hole-game">
+                <div class="hole hole_has-mole" id="hole1"></div>
+                <div class="hole" id="hole2" onclick="countMoles(this.id)"></div>
+                <div class="hole" id="hole3" onclick="countMoles(this.id)"></div>
+                <div class="hole" id="hole4" onclick="countMoles(this.id)"></div>
+                <div class="hole" id="hole5" onclick="countMoles(this.id)"></div>
+                <div class="hole" id="hole6" onclick="countMoles(this.id)"></div>
+                <div class="hole" id="hole7" onclick="countMoles(this.id)"></div>
+                <div class="hole" id="hole8" onclick="countMoles(this.id)"></div>
+                <div class="hole" id="hole9" onclick="countMoles(this.id)"></div>
+            </div>
+        </div>
+    </main>  
+    <script src="./game_kill_moles.js"></script>
+</body>
+</html>
