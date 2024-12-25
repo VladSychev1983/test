@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример querySelector()</title>
+</head>
+<body>
+ <div class="text1">
+<p>Абзац 1</p>
+<p>Абзац 2</p>
+</div>
+ 
+<div class="text2">
+    <p>Абзац 3</p>
+    <p>Абзац 4</p>
+</div>
+
+<div class="text2">
+    <p class="main">Абзац 5</p>
+    <p>Абзац 6</p>
+</div>
+ 
+<script>
+    //первый элемент после div.
+    const p = document.querySelector('.text2 p');
+    //все p элементы после div с классом text2 записываются в список NodeList (статический псевдомассив.)
+    const p2 = document.querySelectorAll('.text2 p');
+    console.log(p2)
+    for (const element of p2) {
+        console.log(element.childNodes[0])
+    }
+    //преобразование NodeList в array
+    const array =  Array.from(p2);
+    array.forEach((p) => {
+        console.log(p.textContent)
+    })
+
+    //поиск родительского элемента.
+    const p3 = document.querySelector(".main");
+    const parent = p3.closest('.text2')
+    console.log(parent)
+    //или
+    console.log(p3.parentElement)
+</script>
+</body>
+</html>

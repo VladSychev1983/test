@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример работы с HTMLCollection</title>
+</head>
+<body>
+    <div class="text1">
+        <p>Абзац 1</p>
+        <p>Абзац 2</p>
+    </div>
+    <div class="text2">
+        <p>Абзац 3</p>
+        <p>Абзац 4</p>
+    </div>
+    <script>
+        const p = document.getElementsByTagName("p");
+        console.log(p)
+        //преобразуем в список. ["Абзац 1","Абзац 2","Абзац 3", "Абзац 4"]
+        const array = Array.from(p, p => p.textContent);
+        console.log(array)
+        //Абзац 1
+        const firstParagraph = p.item(0);
+        console.log(firstParagraph.textContent)
+        //доступ по индексу  -Абзац 4
+        const secondParagraph = p[3];
+        console.log(secondParagraph.textContent);
+    </script>
+</body>
+</html>
