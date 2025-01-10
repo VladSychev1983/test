@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="task1.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Выпадающие списки</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo__container">
+          <a href="https://netology.ru/" class="logo__link"></a>
+        </div>
+        <h1 class="header__title">
+            Домашнее задание к занятию 1.3 «Объект события». Выпадающие списки.
+        </h1>
+    </header>
+    <main class="content">
+        <div class="card">
+            <div class="dropdown">
+                <!-- button 1 -->
+                <div class="dropdown__value">JavaScript</div>
+                <ul class="dropdown__list">
+                    <li class="dropdown__item">
+                        <a href="#" class="dropdown__link">
+                            JavaScript
+                        </a>
+                    </li>
+                    <li class="dropdown__item">
+                        <a href="#" class="dropdown__link">
+                            PHP
+                        </a>
+                    </li>
+                    <li class="dropdown__item">
+                        <a href="#" class="dropdown__link">
+                            Python
+                        </a>
+                    </li>
+                    <li class="dropdown__item">
+                        <a href="#" class="dropdown__link">
+                            Fortran
+                        </a>
+                    </li>
+                </ul>
+            <!-- button 2 example -->
+                <div class="dropdown__value">JavaScript2</div>
+                <ul class="dropdown__list">
+                    <li class="dropdown__item">
+                        <a href="#" class="dropdown__link">
+                        JavaScript2
+                        </a>
+                </li>
+                <li class="dropdown__item">
+                    <a href="#" class="dropdown__link">
+                        PHP2
+                    </a>
+                </li>
+                <li class="dropdown__item">
+                    <a href="#" class="dropdown__link">
+                        Python2
+                    </a>
+                </li>
+                <li class="dropdown__item">
+                    <a href="#" class="dropdown__link">
+                        Fortran2
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </main>
+    <script>
+        let index_menu = [];
+        function OpenCloseMenu(index) {
+            const droplist = document.getElementsByClassName("dropdown__list")[index];
+            droplist.classList.toggle('dropdown__list_active');
+            index_menu = [];
+            index_menu.push(index);
+            console.log(droplist)
+        }
+    
+        const menus = document.getElementsByClassName("dropdown__value");
+        const menus_array = Array.from(menus);
+        console.log(menus_array)
+        for (i=0; i < menus_array.length; i++) {
+            let element = menus_array[i];
+            let index = menus_array.indexOf(element);
+            element.addEventListener('click', function () {
+                OpenCloseMenu(index);
+                console.log("clicked:", index)
+            })
+        }
+        
+        const dropitem = document.getElementsByClassName("dropdown__link");
+        const dropitem_array = Array.from(dropitem);
+        
+        
+        for (var i=0; i < dropitem_array.length;  i++) {
+            var clicked_item =  dropitem_array[i];
+            clicked_item.addEventListener("click", 
+                function () {
+                    SetValue(this.textContent,index_menu[0])
+                }
+            );
+        }
+
+        function SetValue(value, index) {
+            let new_menu = document.getElementsByClassName("dropdown__value")[index];
+            new_menu.textContent = value;
+        }
+    </script>
+</body>
+</html>

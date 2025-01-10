@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример обработки события onclick</title>
+</head>
+<body>
+    <button onclick="onClick()">Кнопка 1</button>
+    <button id="btn2">Кнопка 2</button>
+    <button id="btn3">Кнопка 3</button>
+<script>
+//function
+function onClick() {
+    console.log("кнопка нажата!");
+//method2
+}
+const btn2 = document.getElementById("btn2");
+btn2.onclick = onClick;
+
+//method3
+const btn3 = document.getElementById("btn3");
+btn3.addEventListener('click', onClick);
+</script>
+</body>
+</html>
