@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Определение координат элемента с помощью getBoundingClientRect()</title>
+
+</head>
+<style>
+    body {
+        height: 20000px;
+    }
+</style>
+<body>
+    <div style="position: absolute; top: 200px;">Элемент на странице.</div>
+    <script>
+        const div = document.querySelector("div");
+        console.log(div.getBoundingClientRect());
+        //получаем значения top и bottom
+        setInterval(() => {
+            const {top, bottom} = div.getBoundingClientRect();
+            console.log(top,bottom);
+        }, 1000)
+
+        //определение зоны просмотра элемента innerHeight.
+
+        function isVisible(el) {
+            const {top, bottom} = el.getBoundingClientRect();
+            if (bottom < 0) {
+                return false;
+            }
+            if (top > window.innerHeight) {
+                return false;
+            }
+            return true;
+        }
+
+        setInterval(() => {
+            console.log(isVisible(div))
+        }, 1000);
+
+    </script>
+</body>
+</html>
