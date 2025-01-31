@@ -1,0 +1,22 @@
+{
+  "name": "defender-game",
+  "version": "1.0.0",
+  "description": "\"Browser based game\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VladSychev1983/test.git#main"
+  },
+  "keywords": [
+    "game"
+  ],
+  "author": "Vladislav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VladSychev1983/test/issues"
+  },
+  "homepage": "https://github.com/VladSychev1983/test/tree/main#readme"
+}
