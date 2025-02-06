@@ -1,0 +1,17 @@
+{
+  "name": "esm",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "serve": "http-server",
+    "lint": "eslint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "eslint": "^9.19.0",
+    "http-server": "^14.1.1"
+  }
+}
