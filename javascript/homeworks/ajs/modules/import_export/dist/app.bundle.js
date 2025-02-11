@@ -1,0 +1,1 @@
+(()=>{"use strict";exports.GameSavingData=class{},exports.readGameSaving=function(){},exports.writeGameSaving=function(){},(new class{start(){console.log("game started")}}).start()})();
