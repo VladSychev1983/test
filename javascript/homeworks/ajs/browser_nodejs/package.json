@@ -1,0 +1,19 @@
+{
+  "name": "@vladsychev1983/browser_nodejs",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VladSychev1983/test.git#main"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VladSychev1983/test/issues"
+  },
+  "homepage": "https://github.com/VladSychev1983/test/tree/main#readme",
+  "description": ""
+}
