@@ -24,6 +24,27 @@ test('calculate sum', () => {
     ];
 
     const result = calculateTotal(list);
-    expect(result).toBe(2400)
+    expect(result).toBe(2400);
 
-})
+});
+
+test('calculate discount', () => {
+    const list = [
+        {
+            id:444,
+            name: 'book1',
+            count: 3,
+            price: 400
+        },
+        {
+            id:333,
+            name: 'Javascript',
+            count: 1,
+            price: 1200
+        }
+    ];
+
+    const result = calculateTotal(list,  true);
+    expect(result).toBe(1200);
+
+});
