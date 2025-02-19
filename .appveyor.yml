@@ -1,5 +1,5 @@
-image: Ubuntu1804
-stack: node 18
+image: Ubuntu2404
+stack: node 22
 branches:
   only:
     - master  # ветка git
