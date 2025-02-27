@@ -5,7 +5,7 @@ export default class Character {
         this.health = health;
         this.level = level;
         this.attack = attack;
-        this.defince = defence;
+        this.defence = defence;
         let typesList = [
             'Bowman', 
             'Swordsman', 
@@ -49,6 +49,22 @@ export default class Character {
             this.defence = 40;
             break;
         }
+    }
+
+    levelUp() {
+        if (this.health > 0) {
+            this.level += 1;
+            this.attack += this.attack + (this.attack * 0.2);
+            this.defence += this.defence + (this.defence * 0.2);
+            this.health = 100;
+        }
+        else {
+            throw new Error('нельзя повысить левел умершего');
+        }
+    }
+
+    damage(points) {
+        this.health -=  points * (1 - this.defence /100);
     }
 }
 
