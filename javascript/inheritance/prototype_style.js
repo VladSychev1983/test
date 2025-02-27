@@ -36,4 +36,5 @@ const messenger = new Messanger('Basic');
 
 viber.send(94343, 'Hello!');
 viber.send(3432, 'Hello!');
+console.log(Messanger.prototype.testteest);
 console.log(viber)
