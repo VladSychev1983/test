@@ -14,12 +14,19 @@ export default class Character {
             'Undead', 
             'Zombie'
         ];
-        console.log(typesList);
+        
         if (!typesList.includes(type)) {
-            throw new Error(`No type ${type} in typesList`);
+            const err = () => {
+                throw new Error(`No type ${type} in typesList`); 
+            };
+            return err;
         }
-        if (typeof name !== 'string' || (name.lenght < 2 || name.length > 10)) {
-            throw new Error(`Incorrect name ${name}`);
+        if (typeof this.name !== 'string' || 
+            (this.name.length < 2 || this.name.length > 10)) {
+            const err = () => {
+                throw new Error(`Incorrect name ${name}`);
+            };
+            return err;
         }
         this.level = 1;
         this.health = 100;
@@ -59,12 +66,17 @@ export default class Character {
             this.health = 100;
         }
         else {
-            throw new Error('нельзя повысить левел умершего');
+            const err = () => {
+                throw new Error('this person is dead');
+            };
+            return err;
         }
+        return this;
     }
 
     damage(points) {
         this.health -=  points * (1 - this.defence /100);
+        return this;
     }
 }
 
