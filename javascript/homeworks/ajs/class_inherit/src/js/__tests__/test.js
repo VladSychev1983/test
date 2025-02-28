@@ -1,4 +1,4 @@
-import Character from "../character";
+import Character, { Bowerman } from "../character";
 test ("basic test", () => {
     const result = 4;
     expect(result).toBe(4);
@@ -202,4 +202,23 @@ test("damage func", () => {
         '70');
     const result = obj.damage(20);
     expect(result.health).toBe(expected);
+});
+
+test("check Bowerman class", () => {
+    const expected = {
+        name: 'Name',
+        type: 'Bowman',
+        health: 100,
+        level: 1,
+        attack: 25,
+        defence: 25
+    };
+    const result = new Bowerman(
+        'Name', 
+        'Bowman', 
+        '33', 
+        '29', 
+        '30', 
+        '70');
+    expect(result).toEqual(expected); 
 });
