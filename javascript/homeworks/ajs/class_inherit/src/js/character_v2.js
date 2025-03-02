@@ -18,14 +18,14 @@ export default class Character {
         if (!typesList.includes(type)) {
             const err = () => {
                 throw new Error(`No type ${type} in typesList`);
-            }
+            };
             return err;
         }
         if (typeof this.name !== 'string' || 
             (this.name.length < 2 || this.name.length > 10)) {
-                const err = () => {
-                    throw new Error(`Incorrect name ${name}`);
-                }
+            const err = () => {
+                throw new Error(`Incorrect name ${name}`);
+            };
             return err;
         }
         this.level = 1;
@@ -42,7 +42,7 @@ export default class Character {
         else {
             const err = () => {
                 throw new Error('this person is dead');
-            }
+            };
             return err;
         }
     }

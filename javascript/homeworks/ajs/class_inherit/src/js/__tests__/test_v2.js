@@ -8,23 +8,42 @@ test ("check Charecter class", () => {
         level: 1,
         attack: "30",
         defence: "70",
-        };
-    const result = new Mynameclass.default('Myname2', 'Zombie', '10', '1', '30', '70');
+    };
+    const result = new Mynameclass.default(
+        'Myname2', 'Zombie', '10', '1', '30', '70');
     expect(result).toEqual(expected);
 });
 
 test ("check type", () => {
-    const result = new Mynameclass.default('Myname2', 'UnknownType', '10', '1', '30', '70');
+    const result = new Mynameclass.default(
+        'Myname2',
+        'UnknownType',
+        '10',
+        '1',
+        '30',
+        '70');
     expect(result).toThrowError('No type UnknownType in typesList');
 });
 
 test ("check name 1", () => {
-    const result = new Mynameclass.default('M', 'Zombie', '10', '1', '30', '70');
+    const result = new Mynameclass.default(
+        'M',
+        'Zombie',
+        '10',
+        '1',
+        '30',
+        '70');
     expect(result).toThrowError("Incorrect name M");
 });
 
 test ("check name 11", () => {
-    const result = new Mynameclass.default('Superlonglogname', 'Zombie', '10', '1', '30', '70');
+    const result = new Mynameclass.default(
+        'Superlonglogname', 
+        'Zombie', 
+        '10', 
+        '1', 
+        '30',
+        '70');
     expect(result).toThrowError("Incorrect name Superlonglogname");
 });
 
