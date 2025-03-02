@@ -15,7 +15,7 @@ test ("check Charecter class", () => {
 });
 
 test ("check type", () => {
-    const result = new Mynameclass.default(
+    const result = () => new Mynameclass.default(
         'Myname2',
         'UnknownType',
         '10',
@@ -26,18 +26,19 @@ test ("check type", () => {
 });
 
 test ("check name 1", () => {
-    const result = new Mynameclass.default(
+    const result = () => { new Mynameclass.default(
         'M',
         'Zombie',
         '10',
         '1',
         '30',
         '70');
+    };
     expect(result).toThrowError("Incorrect name M");
 });
 
 test ("check name 11", () => {
-    const result = new Mynameclass.default(
+    const result = () => new Mynameclass.default(
         'Superlonglogname', 
         'Zombie', 
         '10', 
@@ -73,8 +74,8 @@ test ("check levelUp health 0", () => {
         '30', 
         '70');
     obj.health = 0;
-    const result = obj.levelUp();
-    expect(result).toThrowError(expected);
+    //const result = obj.levelUp();
+    expect(() => obj.levelUp()).toThrowError(expected);
 });
 
 test("damage func", () => {

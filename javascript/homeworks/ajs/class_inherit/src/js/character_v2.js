@@ -16,17 +16,11 @@ export default class Character {
         ];
         
         if (!typesList.includes(type)) {
-            const err = () => {
-                throw new Error(`No type ${type} in typesList`);
-            };
-            return err;
+            throw new Error(`No type ${type} in typesList`);
         }
         if (typeof this.name !== 'string' || 
-            (this.name.length < 2 || this.name.length > 10)) {
-            const err = () => {
-                throw new Error(`Incorrect name ${name}`);
-            };
-            return err;
+            (this.name.length < 2 || this.name.length > 10)) {    
+            throw new Error(`Incorrect name ${name}`);
         }
         this.level = 1;
         this.health = 100;
@@ -40,10 +34,7 @@ export default class Character {
             this.health = 100;
         }
         else {
-            const err = () => {
-                throw new Error('this person is dead');
-            };
-            return err;
+            throw new Error('this person is dead');
         }
     }
 
