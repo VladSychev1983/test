@@ -1,7 +1,6 @@
 // TODO: write your code here
 import sum from './basic.js';
-//import Character, { Bowerman } from './character.js';
-import Character, { Bowerman } from './character.js';
+import Character, { Bowman } from './character_v2.js';
 
 console.log('worked');
 
@@ -18,5 +17,9 @@ console.log(char2);
 char.damage(10);
 console.log(char);
 
-const char3 = new Bowerman ('Myname', 'Bowman', '100', '50', '30', '70');
+const char3 = new Bowman('Myname3', 'Bowman', '100', '50', '30', '70');
 console.log(char3);
+
+//incorrect object. must be throw err;
+const char4 = new Bowman('Bestbow', 'sometype', '100', '50', '30', '70');
+console.log(char4);
