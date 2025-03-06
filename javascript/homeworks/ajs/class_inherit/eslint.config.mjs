@@ -5,8 +5,7 @@ import pluginJest from 'eslint-plugin-jest';
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
-    //files: ['**/*.spec.js', '**/*.test.js', '**/*.js'],
-    files: ["src/**/*.js"],
+    files: ['**/*.spec.js', '**/*.test.js', '**/*.js'],
     plugins: { jest: pluginJest },
     languageOptions: { 
         globals: {
@@ -32,10 +31,10 @@ export default [
             'jest/no-identical-title': 'error',
             'jest/prefer-to-have-length': 'warn',
             'jest/valid-expect': 'error',
-          },
-          //ignores: ["jest.config.js", "webpack.config.js", ".config/*", "dist/**/*"],
-          ignores: ['jest.config.js','dist/*','coverage/**/*']
-          
+          },          
+    },
+    {
+      ignores: ['jest.config.js','dist/**/*','coverage/**/*']
     },
   pluginJs.configs.recommended,
 ];

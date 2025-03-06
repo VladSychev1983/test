@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "lint": "eslint",
+    "lint": "eslint --ignore-pattern dist",
     "lintfix": "npx eslint --fix .",
     "start": "webpack serve --mode development",
     "build": "webpack --mode production"
