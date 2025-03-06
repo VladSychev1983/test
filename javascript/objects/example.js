@@ -177,3 +177,65 @@ console.log(Object.isFrozen(someObject));
 console.log(Object.isSealed(someObject));
 //for preventExtensions
 console.log(Object.isExtensible(someObject));
+
+//методы сравнения объектов.
+//переопределение метода toString
+const someObjectNew = {
+    name: "Tanya",
+    age: 40,
+    toString() {
+        return `${this.name} - ${this.age}`;
+    }
+};
+someObjectNew.toString = function() {
+      return `${this.name} - ${this.age}`;
+ }
+console.log('someObjectNew is' - someObjectNew.toString());
+
+//сравнение объектов. valueOf()
+const user1 = {
+    name: 'Oleg',
+    age: 33,
+    valueOf() {
+        return 5;
+    }
+};
+const user2 = {
+    name: 'Ivan',
+    age: 13,
+    valueOf() {
+        return 20;
+    }
+}
+if (user1 > user2) {
+    console('Oleg wins');
+}
+else {
+    console.log('Ivan wins'); 
+}
+//сравнение с помощью Object.is() 
+//вернет true если ссылки на участки памяти будут одинаковые.
+const oneObj = { number:1 };
+const twoObj = { number:1 };
+console.log(Object.is(user1,user2));
+console.log(Object.is(oneObj,twoObj));
+console.log(Object.is(oneObj,oneObj));
+
+//Proxy & Reflect example.
+const user3 = {
+    name: 'Oleg',
+    age: 33,
+};
+const proxy = new Proxy(user3, {
+    get(target,key,reciever) {
+        console.log(target, key, reciever);
+        //return target[key];
+        return Reflect.get(target,key,reciever);
+    },
+    set(target,key, value,reciever) {
+        console.log(target, key, value, reciever);
+        return Reflect.set(target,key,value, reciever);
+    }
+});
+console.log(proxy.name);    //call to getter
+proxy.name = 'Ivan';    //call to setter
